@@ -46,7 +46,7 @@ const config = webpackMerge(commonConfig, {
           name: 'default',
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true,
+          reuseExistingChunk: true
         }
       }
     }
@@ -90,7 +90,7 @@ const config = webpackMerge(commonConfig, {
             name: '[name].[hash:5].[ext]',
             outputPath: assestPathName,
             publicPath: './'
-          },
+          }
         }],
         include: [appDir],
         exclude: [nodeModuleDir]

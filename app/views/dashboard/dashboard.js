@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch, Link, Redirect } from 'react-router-dom'
 import style from './dashboard.css'
+import { Button } from 'antd'
 
 function Dashboard ({ match }) {
   return (
@@ -8,6 +9,7 @@ function Dashboard ({ match }) {
       <div className={style.layout}>
         <div className={style.aside}>
           <h1>side bar</h1>
+          <Button type="primary">Primary</Button>
           <div><Link to="/admin/withdraw">提现管理</Link></div>
           <div><Link to="/admin/about">关于</Link></div>
         </div>

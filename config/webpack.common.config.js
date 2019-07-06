@@ -10,10 +10,10 @@ module.exports = {
   ],
   module: {
     rules: [{
-      test: /(js)$/,
+      test: /(js|jsx)$/,
       use: ['babel-loader'],
       include: [appDir],
       exclude: [nodeModuleDir]
     }]
-  },
+  }
 }

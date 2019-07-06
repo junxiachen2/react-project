@@ -20,9 +20,9 @@ const config = webpackMerge(commonConfig, {
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
-        changeOrigin: true,
+        changeOrigin: true
       }
-    },
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -39,12 +39,13 @@ const config = webpackMerge(commonConfig, {
       {
         test: new RegExp(`^(?!.*\\.common).*\\.css`),
         use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
-        // include: [appDir],
-        // exclude: [nodeModuleDir]
+        include: [appDir],
+        exclude: [nodeModuleDir]
       },
       {
         test: new RegExp(`^(.*\\.common).*\\.css`),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+        // include: [appDir, /[\\/]node_modules[\\/].*antd/]
         include: [appDir],
         exclude: [nodeModuleDir]
       },
