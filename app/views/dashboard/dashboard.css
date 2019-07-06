@@ -1,0 +1,12 @@
+.layout{
+  background: #f0f0f0;
+  display: flex;
+}
+.aside{
+  width: 200px;
+  background: red;
+}
+.main{
+  flex: 1;
+  background: pink;
+}
