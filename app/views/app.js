@@ -4,7 +4,6 @@ import PrivateRoute from '../components/privateRoute/privateRoute'
 import Login from './login/login'
 import Dashboard from './dashboard/dashboard'
 import PageNotFound from './pageNotFound/pageNotFound'
-import './app.common.css'
 
 function App () {
   return (

@@ -20,6 +20,9 @@ const config = webpackMerge(commonConfig, {
     publicPath: '',
     filename: assestPathName + `/[name].js`
   },
+  performance: {
+    hints: false
+  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
@@ -71,13 +74,17 @@ const config = webpackMerge(commonConfig, {
     rules: [
       {
         test: new RegExp(`^(?!.*\\.common).*\\.css`),
-        use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader'],
-        include: [appDir],
-        exclude: [nodeModuleDir]
+        use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
+        include: [appDir]
+      },
+      {
+        test: new RegExp(`^(?!.*\\.common).*\\.css`),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        include: [/[\\/]node_modules[\\/].*antd/]
       },
       {
         test: new RegExp(`^(.*\\.common).*\\.css`),
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
         include: [appDir],
         exclude: [nodeModuleDir]
       },

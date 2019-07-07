@@ -39,13 +39,16 @@ const config = webpackMerge(commonConfig, {
       {
         test: new RegExp(`^(?!.*\\.common).*\\.css`),
         use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
-        include: [appDir],
-        exclude: [nodeModuleDir]
+        include: [appDir]
+      },
+      {
+        test: new RegExp(`^(?!.*\\.common).*\\.css`),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        include: [/[\\/]node_modules[\\/].*antd/]
       },
       {
         test: new RegExp(`^(.*\\.common).*\\.css`),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
-        // include: [appDir, /[\\/]node_modules[\\/].*antd/]
         include: [appDir],
         exclude: [nodeModuleDir]
       },
